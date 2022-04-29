@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows10.0.17763.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\3643774-disk-floppy-save-saveas-saved-saving_113433.png" />
+    <None Remove="Resources\key-silhouette-security-tool-interface-symbol-of-password_icon-icons.com_54503.png" />
+    <None Remove="Resources\lockicon_120641.png" />
+    <None Remove="Resources\seo-social-web-network-internet_12_icon-icons.com_61498.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DocumentFormat.OpenXml" Version="2.16.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\3643774-disk-floppy-save-saveas-saved-saving_113433.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\key-silhouette-security-tool-interface-symbol-of-password_icon-icons.com_54503.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\lockicon_120641.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\seo-social-web-network-internet_12_icon-icons.com_61498.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

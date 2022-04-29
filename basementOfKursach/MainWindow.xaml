@@ -1,0 +1,101 @@
+﻿<Window x:Class="basementOfKursach.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:basementOfKursach"
+        mc:Ignorable="d"
+        Title="Шифратор Виженера" Height="450" Width="800" Name="mainWindow">
+   
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Menu>
+                <MenuItem Height="Auto" Width="Auto" Header="Файл">
+                    <MenuItem Header="Сохранить" HorizontalAlignment="Center"  Click="Save_Button_Click"/>
+                    <MenuItem Header="Открыть" HorizontalAlignment="Center"   Click="Download_Text_Button_Click"/>
+                </MenuItem>
+                <MenuItem Header="Обработать">
+                    <MenuItem Header="Зашифровать" HorizontalAlignment="Center" Click="Encrypt_Button_Click"/>
+                    <MenuItem Header="Расшифровать" HorizontalAlignment="Center" Click="Decrypt_Button_Click"/>
+                </MenuItem>
+                <MenuItem Header="Справка" Click="Info_MenuItem_Click">
+                </MenuItem>
+            </Menu>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column ="0" >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="102"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="102"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Button  HorizontalAlignment="Center"  VerticalAlignment="Top" Height="49" Width="130" Click="Encrypt_Button_Click">
+                        <Image Source="/Resources/lockicon_120641.png"/>
+                    </Button>
+                    <Button HorizontalAlignment="Center"  VerticalAlignment="Bottom" Height="49" Width="130" Click="Decrypt_Button_Click">
+                        <Image Source="/Resources/key-silhouette-security-tool-interface-symbol-of-password_icon-icons.com_54503.png"/>
+                    </Button>
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Button  HorizontalAlignment="Center"  VerticalAlignment="Bottom" Height="49" Width="130" Click="Save_Button_Click">
+                        <Image Source="/Resources/3643774-disk-floppy-save-saveas-saved-saving_113433.png"/>
+                    </Button>
+                    <Button  HorizontalAlignment="Center"  VerticalAlignment="Top" Height="49" Width="130" Click="Download_Text_Button_Click">
+                        <Image Source="/Resources/seo-social-web-network-internet_12_icon-icons.com_61498.png"/>
+                    </Button>
+                </Grid>
+               
+            </Grid>
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Label>
+                        <TextBlock VerticalAlignment="Bottom" FontSize="20">Исходный текст:</TextBlock>
+                    </Label>
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Label>
+                        <TextBlock VerticalAlignment ="Bottom" FontSize="20">Преобразованный текст:</TextBlock>
+                    </Label>
+                </Grid>
+                <Grid Grid.Row="4">
+                    <Label HorizontalAlignment="Left" Width="650">
+                        <TextBlock FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="139">Текущий ключ:</TextBlock>
+                    </Label>
+                    <TextBox Name ="CurrentKey"  Margin="149,0,0,0" Text="{Binding ElementName=mainWindow, Path= Key, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" FontSize="20" ></TextBox>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <TextBox Name="OriginalTextBlock" TextWrapping="Wrap" AcceptsReturn="True" AcceptsTab="True" VerticalScrollBarVisibility ="Auto" Text ="{Binding ElementName = mainWindow, Path= OriginalText, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                </Grid>
+                <Grid Grid.Row="3" >
+                    <ScrollViewer>
+                        <Label>
+                            <TextBlock  Height="Auto" Width="Auto" Name ="ProcessedTextBlock" Margin="0,0,0,0" TextWrapping ="Wrap"  Text="{Binding ElementName=mainWindow, Path=ProcessedText, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" ></TextBlock>
+                        </Label>
+                    </ScrollViewer>
+                </Grid>
+
+            </Grid>
+
+
+        </Grid>
+    </Grid>
+</Window>
